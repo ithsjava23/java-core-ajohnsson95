@@ -142,7 +142,7 @@ class WarehouseTest {
         @DisplayName("sets price to 0 if null")
         void setsPriceTo0IfNull() {
             var productRecord = warehouse.addProduct(UUID.randomUUID(), "Test", Category.of("Test"), null);
-            assertThat(productRecord.price()).isEqualTo(BigDecimal.ZERO);
+            assertThat(productRecord.getPrice()).isEqualTo(BigDecimal.ZERO);
         }
 
         @Test
