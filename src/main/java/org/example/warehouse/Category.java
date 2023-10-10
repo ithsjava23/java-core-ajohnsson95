@@ -14,6 +14,7 @@ public class Category {
         return new Category(capitalizeFirstLetter(name));
     }
 
+
     public String getName() {
         return name;
     }
