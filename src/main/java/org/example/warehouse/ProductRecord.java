@@ -17,9 +17,6 @@ public class ProductRecord {
         this.price = price;
         this.originalPrice = price;
     }
-    public String getName() {
-        return name;
-    }
     public UUID uuid() {
         return this.uuid;
     }
@@ -39,6 +36,5 @@ public class ProductRecord {
 
     public void setPrice(BigDecimal price) {
             this.price = price;
-
     }
 }
