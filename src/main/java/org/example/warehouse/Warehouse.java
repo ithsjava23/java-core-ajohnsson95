@@ -52,7 +52,6 @@ public class Warehouse {
             throw new IllegalArgumentException("Product with that id doesn't exist.");
         }
     }
-
     public List<ProductRecord> getProducts() {
         return List.copyOf(this.products);
     }
