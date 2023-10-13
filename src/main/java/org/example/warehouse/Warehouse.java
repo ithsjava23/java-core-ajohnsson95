@@ -6,22 +6,19 @@ import java.util.*;
 public class Warehouse {
     private String name;
     private List<ProductRecord> products = new ArrayList<>();
-    private static final List<ProductRecord> productChanged = new ArrayList<>();
-
     private Warehouse(String name) {
         this.name = name;
         this.products = new ArrayList<>();
     }
 
     private Warehouse() {}
+
     public static Warehouse getInstance(String name) {
         return new Warehouse(name);
     }
-
     public static Warehouse getInstance() {
         return new Warehouse();
     }
-
 
     public ProductRecord addProduct(UUID uuid, String name, Category category, BigDecimal price) {
         if (name == null || name.isEmpty()) {
@@ -44,8 +41,6 @@ public class Warehouse {
         products.add(product);
         return product;
     }
-
-
 
     public void updateProductPrice(UUID id, BigDecimal newPrice) {
         Optional<ProductRecord> optionalProduct = getProductById(id);
@@ -70,7 +65,6 @@ public class Warehouse {
         return products.stream().filter(product -> id.equals(product.uuid())).findFirst();
     }
 
-
     public List<ProductRecord> getChangedProducts() {
         List<ProductRecord> productsChanged = new ArrayList<>();
 
@@ -85,7 +79,6 @@ public class Warehouse {
         return List.copyOf(productsChanged);
     }
 
-
     public Map<Category, List<ProductRecord>> getProductsGroupedByCategories() {
         Map<Category, List<ProductRecord>> productsOfCategory = new HashMap<>();
 
@@ -99,7 +92,6 @@ public class Warehouse {
         }
             return Collections.unmodifiableMap(productsOfCategory);
     }
-
     public List<ProductRecord> getProductsBy(Category category) {
         if (category == null) {
             throw new IllegalArgumentException("Category can't be null.");
@@ -112,12 +104,8 @@ public class Warehouse {
         }
       return List.copyOf(productsInCategory);
     }
-
     public boolean isEmpty() {
         return products.isEmpty();
     }
 
-    // Other methods and fields as needed
-
-    // Override equals and hashCode if needed
 }

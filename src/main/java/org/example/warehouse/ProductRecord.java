@@ -21,7 +21,6 @@ public class ProductRecord {
         return this.uuid;
     }
 
-
     public Category category() {
         return this.category;
     }
